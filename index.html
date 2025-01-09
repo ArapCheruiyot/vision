@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive File Uploader & Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Google Drive File Uploader & Downloader</h1>
+    </header>
+    <main>
+        <h1>Upload & Download Files Easily</h1>
+        <button id="authorize_button" class="button" style="display: none;" onclick="handleAuthClick()">Authorize Access</button>
+        <button id="signout_button" class="button" style="display: none;" onclick="handleSignoutClick()">Sign Out</button>
+
+        <div id="uploadSection">
+            <label for="file_input">Select Excel files to upload:</label>
+            <input type="file" id="file_input" multiple accept=".xlsx, .xls" onchange="handleFileSelection()">
+            <ul id="file_list" class="file-list"></ul>
+            <button class="button" onclick="uploadFiles()">Upload Files</button>
+            <p class="notice">Note: Only Excel files (.xlsx, .xls) are allowed. You can select multiple files.</p>
+            <button class="button" onclick="listFiles()">List & Download Files</button>
+            <ul id="download_list" class="file-list"></ul>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 FileUploader Inc. All rights reserved.
+    </footer>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
